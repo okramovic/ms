@@ -54,11 +54,11 @@ export function QCreator({onCreateQCancel, onFormSave}){
                 <Question key={i} questionData={questionData} qIndex={i} onQuestionUpdate={onQuestionUpdate}/>
             )}
 
-            <button onClick={onAddQuestionClick} className="addQuestionButton">Add question</button>
+            <button onClick={onAddQuestionClick} className="addQuestionButton buttonSmall">Add question</button>
 
             <div className="bottomButtonsContainer">
-                <button onClick={onCreateQCancel}>Cancel</button>
-                <button onClick={onFormSaveClick} disabled={questions.length < 1}>Save</button>
+                <button onClick={onCreateQCancel} className="buttonLarge">Cancel</button>
+                <button onClick={onFormSaveClick} className="buttonLarge" disabled={questions.length < 1}>Save</button>
             </div>
         </div>
     )

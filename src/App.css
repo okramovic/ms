@@ -35,9 +35,25 @@ button{
     border: none;
     border-radius: 5px;
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 1rem;
     padding: 0.5rem;
     background: LightSteelBlue;
+    cursor: pointer;
+}
+
+.buttonLarge{
+    font-size: 1.75rem;
+    min-width: 130px;
+    padding: 0.66rem 1rem;
+}
+
+.buttonSmall{
+    min-width: 8ch;
+}
+
+.buttonSecondary{
+    background: rgba(176, 196, 222, 0.33);
+    font-size: smaller;
 }
 
 button.removeButton{
@@ -46,7 +62,12 @@ button.removeButton{
     align-items: center;
     justify-content: center;
     padding: 0;
-    width: 25px;
+    width: 15px;
+}
+
+button.deleteQuestionButton{
+    width: 15px;
+    height: 15px;
 }
 
 button .closeIcon{
@@ -96,6 +117,7 @@ textarea:focus{
 .singleChoiceOptions input[type="radio"]{
     margin-top: 0;
     margin-right: .33rem;
+    cursor: pointer;
 }
 
 nav {
@@ -126,7 +148,6 @@ nav input[type="password"]{
 }
 
 .loginButton{
-    height: 40px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
@@ -134,7 +155,7 @@ nav input[type="password"]{
 .adminLogoutButton, 
 nav div.empty{
     box-sizing: border-box;
-    width: 8ch;
+    min-width: 8ch;
 }
 
 main {
@@ -168,13 +189,6 @@ main > section{
     flex-direction: column;
     align-items: center;
 }
-main section > button{
-    padding: .5rem;
-    font-size: 1.5rem;
-    border: none;
-    border-radius: 5px;
-}
-
 
 main section > button:first-of-type{
     margin-top: 2rem;
@@ -224,6 +238,7 @@ main section > button:first-of-type{
     margin-top: 0;
     margin-right: .33rem;
     position: relative;
+    cursor: pointer;
 }
 .formChooseQuestionType label{
     margin-right: 1rem;
@@ -275,12 +290,8 @@ main section > button:first-of-type{
 }
 
 .bottomButtonsContainer button{
-    font-size: 1.75rem;
-    width: 130px;
     margin: 0 1rem;
-    padding: 0.66rem 1rem;
 }
-
 
 .questionnaireThumbnail{
     width: 300px;
@@ -292,7 +303,7 @@ main section > button:first-of-type{
 }
 
 .fakeRadio{
-    width: 12px;
+    width: 11px;
     height: 11px;
     margin: 0 .33rem 0 5px;
     

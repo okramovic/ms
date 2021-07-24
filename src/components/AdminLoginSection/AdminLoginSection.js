@@ -36,7 +36,7 @@ export const AdminLoginSection = ({role, setUserRole}) => {
             { role === ADMIN_ROLE ? <>
                     <div className="empty"></div>
                     <span>You're logged in as Admin</span>
-                    <button onClick={onAdminLogout} className="adminLogoutButton">Logout</button>
+                    <button onClick={onAdminLogout} className="adminLogoutButton buttonSmall">Logout</button>
                 </>
                 :
                 <>
@@ -46,7 +46,7 @@ export const AdminLoginSection = ({role, setUserRole}) => {
                             value={passwordValue} 
                             onChange={onAdminPasswordChange}
                             onKeyDown={onKeyDown}/>
-                        <button onClick={onAdminLogin} className="loginButton">Login</button>
+                        <button onClick={onAdminLogin} className="loginButton buttonSmall">Login</button>
                     </div>
                 </>
             }

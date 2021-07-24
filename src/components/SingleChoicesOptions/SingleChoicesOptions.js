@@ -34,7 +34,7 @@ export const SingleChoicesOptions = ({onOptionsChange}) =>{
                         />
                     )}
                 </ul>
-                <button onClick={onAddOptionClick}>Add option</button>
+                <button onClick={onAddOptionClick} className="buttonSecondary">Add option</button>
             </div>
         </form>
     )

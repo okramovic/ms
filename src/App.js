@@ -4,9 +4,6 @@ import {QuestionnairesOverview} from './components/QuestionnairesOverview/Questi
 import {AdminLoginSection, ADMIN_ROLE} from './components/AdminLoginSection/AdminLoginSection';
 import './App.css';
 
-// eslint-disable-next-line
-const {log} = console;
-
 const dummyQuestionnaires = [
     {
         "name": "Shopping 1",
