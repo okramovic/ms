@@ -1,0 +1,295 @@
+.App{
+    width: 100vw;
+    background: rgb(229, 231, 233);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.width80percent{
+    width: 80%;
+}
+.width100percent{
+    width: 100%;
+}
+
+.flex{
+    display: flex;
+}
+.flexDirectionColumn{
+    flex-direction: column;
+}
+.alignItemsCenter{
+    align-items: center;
+}
+.justifyBetween{
+    justify-content: space-between;
+}
+
+h3, h4, h5, h6{
+    font-weight: normal;
+}
+
+button{
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    background: LightSteelBlue;
+}
+
+button.removeButton{
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 25px;
+}
+
+button .closeIcon{
+    width: 25px;
+    height: 25px;
+    fill: transparent;
+    stroke: black;
+    stroke-linecap: round;
+    stroke-width: 2;
+}
+
+.optionAnswerContainer .closeIcon{
+    width: 15px;
+    height: 15px;
+}
+
+input[type="text"], textarea{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid;
+}
+
+.QCreator input[type="text"], 
+.QCreator textarea{
+    box-sizing: border-box;
+    padding-left: 0.33rem;
+    font-size: 2rem;
+    resize: none;
+}
+.QCreator input[type="text"]::placeholder, 
+.QCreator textarea::placeholder{
+    color: gray;
+}
+
+.QCreator .singleChoiceOptions input[type="text"],
+.QCreator .singleChoiceOptions textarea{
+    font-size: 1rem;
+    height: 1.7rem;
+}
+
+.singleChoiceOptions input[type="radio"]{
+    margin-top: 0;
+    margin-right: .33rem;
+}
+
+nav {
+    width: 100%;
+    height: var(--nav-height);
+    background-color: #282c34;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+nav > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+nav input[type="password"]{
+    box-sizing: border-box;
+    font-size: 1.25rem;
+    padding-left: .5rem;
+    height: 40px;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.loginButton{
+    height: 40px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.adminLogoutButton, 
+nav div.empty{
+    box-sizing: border-box;
+    width: 8ch;
+}
+
+main {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.questionnairesContainer{
+    margin: 3rem 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.questionnairesContainer > li{
+    display: block;
+}
+
+.questionnairesContainer > li:hover{
+    background: rgb(234, 236, 238);
+}
+
+main > section{
+    width: 80%;
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main section > button{
+    padding: .5rem;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+}
+
+
+main section > button:first-of-type{
+    margin-top: 2rem;
+}
+
+.QCreator{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.qHeaderSection{
+    margin: 2.5rem;
+}
+
+.questionContainer{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 0 1.5rem;
+    padding: 0.75rem 0.75rem 1.5rem 0.75rem;
+    
+    border: 1px solid gray;
+    border-radius: 5px;
+
+    background: AliceBlue;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.questionText{
+    width: 80%;
+    margin-top: 1.5rem;
+
+}
+
+.formChooseQuestionType h4,
+.singleChoiceOptions h4{
+    margin-right: 1.5rem;
+    width: var(--q-header-width);
+}
+.formChooseQuestionType input[type="radio"]{
+    margin-top: 0;
+    margin-right: .33rem;
+    position: relative;
+}
+.formChooseQuestionType label{
+    margin-right: 1rem;
+}
+
+
+.singleChoiceOptions{
+    width: 80%;
+    align-items: flex-start;
+}
+
+.singleChoiceOptions h4{
+    margin-top: 0;
+}
+
+.allOptionsContainer{
+    width: calc(100% - (var(--q-header-width) + 1.5rem));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.allOptionsContainer ul{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.allOptionsContainer ul + button{
+    margin-top: 1.5rem;
+}
+
+
+.optionAnswerContainer:not(:first-child){
+    margin-top: .66rem;
+}
+
+.optionAnswerContainer input[type="text"],
+.optionAnswerContainer textarea{
+    width: calc(100% - (21px + 25px));
+    height: 1rem;
+    padding-left: 0.25rem;
+}
+
+.bottomButtonsContainer{
+    margin: 5rem;
+    margin-bottom: 12rem;
+}
+
+.bottomButtonsContainer button{
+    font-size: 1.75rem;
+    width: 130px;
+    margin: 0 1rem;
+    padding: 0.66rem 1rem;
+}
+
+
+.questionnaireThumbnail{
+    width: 300px;
+    margin: 1rem;
+    padding: 1.5rem;
+
+    box-shadow: 2px 2px 5px gray;
+    border-radius: 5px;
+}
+
+.fakeRadio{
+    width: 12px;
+    height: 11px;
+    margin: 0 .33rem 0 5px;
+    
+    border: 1px solid rgb(121, 121, 121);
+    background: white;
+    border-radius: 50%;
+}
