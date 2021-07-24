@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {Button} from '../Button/Button';
 
 export const ADMIN_PWD = 'moonshiner', 
 ADMIN_ROLE = 'admin';
@@ -36,17 +37,17 @@ export const AdminLoginSection = ({role, setUserRole}) => {
             { role === ADMIN_ROLE ? <>
                     <div className="empty"></div>
                     <span>You're logged in as Admin</span>
-                    <button onClick={onAdminLogout} className="adminLogoutButton buttonSmall">Logout</button>
+                    <Button onClick={onAdminLogout} className={"adminLogoutButton buttonSmall"} label={'Logout'} />
                 </>
                 :
                 <>
-                    Admin login
+                    Admin login:
                     <div className="flex">
                         <input type="password" placeholder="password" 
                             value={passwordValue} 
                             onChange={onAdminPasswordChange}
                             onKeyDown={onKeyDown}/>
-                        <button onClick={onAdminLogin} className="loginButton buttonSmall">Login</button>
+                        <Button onClick={onAdminLogin} className={"loginButton buttonSmall"} label={'Login'} />
                     </div>
                 </>
             }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Button} from '../Button/Button';
 import {AnswerOption} from '../AnswerOption/AnswerOption';
 
 export const SingleChoicesOptions = ({onOptionsChange}) =>{
@@ -34,7 +35,7 @@ export const SingleChoicesOptions = ({onOptionsChange}) =>{
                         />
                     )}
                 </ul>
-                <button onClick={onAddOptionClick} className="buttonSecondary">Add option</button>
+                <Button onClick={onAddOptionClick} className={"buttonSecondary"} label={"Add option"} />
             </div>
         </form>
     )

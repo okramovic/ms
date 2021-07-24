@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import {Question} from '../Question/Question';
 import {QUESTION_TYPE_TEXT} from '../QuestionTypeForm/QuestionTypeForm';
+import {Button} from '../Button/Button';
 
 export function QCreator({onCreateQCancel, onFormSave}){
 
@@ -54,11 +55,11 @@ export function QCreator({onCreateQCancel, onFormSave}){
                 <Question key={i} questionData={questionData} qIndex={i} onQuestionUpdate={onQuestionUpdate}/>
             )}
 
-            <button onClick={onAddQuestionClick} className="addQuestionButton buttonSmall">Add question</button>
+            <Button  onClick={onAddQuestionClick} className={"addQuestionButton buttonSmall"} label={"Add question"}/>
 
             <div className="bottomButtonsContainer">
-                <button onClick={onCreateQCancel} className="buttonLarge">Cancel</button>
-                <button onClick={onFormSaveClick} className="buttonLarge" disabled={questions.length < 1}>Save</button>
+                <Button  onClick={onCreateQCancel} className={"buttonLarge"} label={"Cancel"}/>
+                <Button  onClick={onFormSaveClick} className={"buttonLarge"} label={"Save"} disabled={questions.length < 1}/>
             </div>
         </div>
     )

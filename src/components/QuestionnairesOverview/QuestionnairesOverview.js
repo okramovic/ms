@@ -1,9 +1,12 @@
+import {Button} from '../Button/Button';
 import {ADMIN_ROLE} from '../AdminLoginSection/AdminLoginSection';
 const DEFAULT_Q_LABEL = 'Questionnaire #';
 
 export const QuestionnairesOverview = ({role, onCreateNewClick, questionnaires}) =>(
     <>
-        {role === ADMIN_ROLE && <button className="createNewButton buttonLarge" onClick={onCreateNewClick}>Create questionnaire</button>}
+        { role === ADMIN_ROLE && 
+            <Button className={"createNewButton buttonLarge"} onClick={onCreateNewClick} label={"Create questionnaire"}/>
+        }
         <ul className="questionnairesContainer width100percent flex">
             { 
                 (questionnaires && questionnaires.length) ? 

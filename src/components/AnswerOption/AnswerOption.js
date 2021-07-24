@@ -1,5 +1,6 @@
 import React, {useRef, useEffect} from 'react';
 import {CloseIcon} from '../CloseIcon/CloseIcon';
+import {Button} from '../Button/Button';
 
 export const AnswerOption = ({choice, index, onOptionTextChange, onRemoveOptionClick})=>{
     
@@ -12,13 +13,15 @@ export const AnswerOption = ({choice, index, onOptionTextChange, onRemoveOptionC
     return(
         <li key={index} className="optionAnswerContainer width100percent flex alignItemsCenter">
             <div className="fakeRadio"/>
-            <input type="text" value={choice} placeholder={`Option ${index+1}`} 
+            <input type="text"
                 ref={textInputRef}
+                value={choice} placeholder={`Option ${index+1}`}
                 onChange={ev => onOptionTextChange(ev, index) }
             />
-            <button className="removeButton" onClick={onRemoveOptionClick}>
+
+            <Button onClick={onRemoveOptionClick} className={"removeButton"}>
                 <CloseIcon/>
-            </button>
+            </Button>
         </li>
     )
 }
