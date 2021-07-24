@@ -9,7 +9,7 @@ const {log} = console;
 
 const dummyQuestionnaires = [
     {
-        "name": "shopping 1",
+        "name": "Shopping 1",
         "createdOn": new Date("2021-07-24T08:46:34.863Z"),
         "questions": [
             {"questionText": "how was it","questionType":"questionTypeText","answerOptions":null}
@@ -49,18 +49,24 @@ function App() {
         setIsCreatingQuestionnaire(false);
     };
     
+    const qThumbnails = <QuestionnairesOverview role={role} onCreateNewClick={onCreateNewClick} questionnaires={questionnaires} />;
+
     return (
         <div className="App">
             <nav>
-                <AdminLoginSection setUserRole={setAdminRole} role={role}/>
+                <AdminLoginSection setUserRole={setAdminRole} role={role} />
             </nav>
             <main>
-                { role === ADMIN_ROLE && <section>
-                        {isCreatingQuestionnaire ? 
-                            <QuestionnairesCreator onCreateQCancel={ _ => setIsCreatingQuestionnaire(false)} onFormSave={onFormSave} />
-                            :
-                            <QuestionnairesOverview onCreateNewClick={onCreateNewClick} questionnaires={questionnaires} />
+                { role === ADMIN_ROLE ? <section>
+                        {
+                            isCreatingQuestionnaire ? 
+                                <QuestionnairesCreator onCreateQCancel={ _ => setIsCreatingQuestionnaire(false)} onFormSave={onFormSave} />
+                                : qThumbnails
                         }
+                    </section>
+                    :
+                    <section>
+                        {qThumbnails}
                     </section>
                 }
             </main>
