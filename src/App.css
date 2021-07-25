@@ -165,10 +165,8 @@ nav input[type="password"]{
     border-bottom-left-radius: 0;
 }
 
-.adminLogoutButton, 
-nav div.empty{
-    box-sizing: border-box;
-    min-width: 8ch;
+.empty{
+    width: 5ch;
 }
 
 main {
