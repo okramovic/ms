@@ -24,13 +24,9 @@ export const Popup = ({onTogglePopup, formData}) =>{
             <aside id="popup" className={styles.popupContainer} aria-modal="true" role="dialog" tabIndex="-1">
                 <div className="positionRelative width100percent">
                     <Button className={"removeButton " + styles.closeButton }
-                            aria-label="Close Popup"
-                            aria-labelledby="closeModal"
+                            ariaLabel="Close Popup"
                             onClick={onTogglePopup}>
                         <CloseIcon/>
-                        <span id="closeModal" className="_hideVisually">
-                            Close
-                        </span>
                     </Button>
                 </div>
                 <h2>{formData.name}</h2>

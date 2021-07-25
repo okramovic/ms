@@ -19,7 +19,7 @@ export const AnswerOption = ({choice, index, onOptionTextChange, onRemoveOptionC
                 onChange={ev => onOptionTextChange(ev, index) }
             />
 
-            <Button onClick={onRemoveOptionClick} className={"removeButton"}>
+            <Button onClick={onRemoveOptionClick} className={"removeButton"} ariaLabel="Remove option">
                 <CloseIcon/>
             </Button>
         </li>
