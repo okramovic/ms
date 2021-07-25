@@ -1,6 +1,7 @@
 # Welcome to the Survey creation tool
 
-Deployed demo of the application is at https://shiner-survey-tool.herokuapp.com/\
+Deployed demo of the application is at https://shiner-survey-tool.herokuapp.com/
+\
 Code repository is at https://github.com/okramovic/ms
 
 Steps to run the project locally:
