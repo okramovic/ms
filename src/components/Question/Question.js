@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {QuestionHeader} from '../QuestionHeader/QuestionHeader';
 import {QuestionTextInput} from '../QuestionTextInput/QuestionTextInput';
 import {SingleChoicesOptions} from '../SingleChoicesOptions/SingleChoicesOptions';
@@ -9,21 +9,14 @@ export const Question = ({
     qIndex, onQuestionDataUpdate, onQuestionRemove
 }) => {
     
-    const [questionRows, setQuestionRows] = useState(1);
     const qMainInputRef = useRef(null);
 
     useEffect(()=>{
         qMainInputRef.current && qMainInputRef.current.focus();
     }, []);
 
-    const onQuestionTextChange = ev =>{
-        const value = ev.target.value;
-        updateQuestionProp({'questionText': value});
-
-        // improve this
-        const charsPerLine = 40;
-        const linesFull = parseInt(value.length / charsPerLine);
-        setQuestionRows( linesFull + 1 );
+    const onQuestionTextChange = newValue =>{
+        updateQuestionProp({'questionText': newValue});
     };
 
     const onQuestionTypeChange = ev =>{
@@ -64,7 +57,6 @@ export const Question = ({
             <QuestionTextInput qMainInputRef={qMainInputRef} 
                 questionText={questionText} 
                 onQuestionTextChange={onQuestionTextChange} 
-                questionRows={questionRows}
             />
 
             <QuestionTypeForm qIndex={qIndex} 
