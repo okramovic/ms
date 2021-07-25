@@ -1,27 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {Button} from '../Button/Button';
 import {AnswerOption} from '../AnswerOption/AnswerOption';
 
-export const SingleChoicesOptions = ({onOptionsChange}) =>{
-
-    const [choices, setChoices] = useState([""]);
+export const SingleChoicesOptions = ({answerOptions, onOptionsChange}) =>{
 
     const onAddOptionClick = ev =>{
-        setChoices([...choices, ""]);
+        const newChoices = [...answerOptions, ""];
+        onOptionsChange(newChoices);
         ev.preventDefault();
     };
 
-    const onOptionTextChange = (ev, index)=>{
-        const newValue = ev.target.value;
-        const newChoices = [...choices];
-        newChoices[index] = newValue;
-        setChoices(newChoices);
+    const onOptionTextChange = (ev, index) =>{
+        const newChoices = [...answerOptions];
+        newChoices[index] = ev.target.value;
         onOptionsChange(newChoices);
     };
 
     const onRemoveOptionClick = ev =>{
         ev.preventDefault();
-        // to do
+        alert(`Sorry, it's currently not possible to remove an option.`);
     };
 
     return(
@@ -29,7 +26,7 @@ export const SingleChoicesOptions = ({onOptionsChange}) =>{
             <h4>Answers:</h4>
             <div className="allOptionsContainer">
                 <ul>
-                    { choices.map((choice, i) =>
+                    { answerOptions && answerOptions.map((choice, i) =>
                         <AnswerOption key={i} choice={choice} index={i} 
                             onOptionTextChange={onOptionTextChange} onRemoveOptionClick={onRemoveOptionClick}
                         />

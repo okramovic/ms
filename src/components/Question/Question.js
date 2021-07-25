@@ -4,15 +4,12 @@ import {QuestionTextInput} from '../QuestionTextInput/QuestionTextInput';
 import {SingleChoicesOptions} from '../SingleChoicesOptions/SingleChoicesOptions';
 import {QuestionTypeForm, QUESTION_TYPE_SINGLE_CHOICE} from '../QuestionTypeForm/QuestionTypeForm'
 
-export const Question = ({questionData, qIndex, onQuestionUpdate}) => {
+export const Question = ({
+    questionText, questionType, answerOptions,
+    qIndex, onQuestionDataUpdate, onQuestionRemove
+}) => {
     
-    const {questionType: qType, questionText: qText} = questionData;
-
-    const [questionText, setQuestionText] = useState(qText);
-    const [questionType, setQuestionType] = useState(qType);
     const [questionRows, setQuestionRows] = useState(1);
-    const [answerOptions, setAnswerOptions] = useState([]);
-
     const qMainInputRef = useRef(null);
 
     useEffect(()=>{
@@ -21,44 +18,48 @@ export const Question = ({questionData, qIndex, onQuestionUpdate}) => {
 
     const onQuestionTextChange = ev =>{
         const value = ev.target.value;
-        setQuestionText(value);
-
-        updateQuestionProp('questionText', value);
+        updateQuestionProp({'questionText': value});
 
         // improve this
         const charsPerLine = 40;
-        const linesFull = parseInt(value.length / charsPerLine );
+        const linesFull = parseInt(value.length / charsPerLine);
         setQuestionRows( linesFull + 1 );
     };
 
-    const onFormChange = ev =>{
+    const onQuestionTypeChange = ev =>{
         const newValue = ev.target.value;
-        setQuestionType(newValue);
-        updateQuestionProp('questionType', newValue);
+        
+        if (newValue === QUESTION_TYPE_SINGLE_CHOICE){
+            updateQuestionProp({'questionType': newValue, 'answerOptions':[""]});
+        } else updateQuestionProp({'questionType': newValue, 'answerOptions': null});
     };
 
     const onOptionsChange = choices =>{
-        setAnswerOptions(choices);
-        updateQuestionProp('answerOptions', choices);
+        updateQuestionProp({'answerOptions': choices});
     };
 
-    const updateQuestionProp = (prop, value)=>{
-        if (!prop) return;
+    const updateQuestionProp = props =>{
+        if (!props) return;
 
-        const questionData = {
-            id: qIndex,
+        const newQuestionData = {
             questionText,
             questionType,
             answerOptions: questionType === QUESTION_TYPE_SINGLE_CHOICE ? answerOptions : null
         };
-        questionData[prop] = value;
+        Object.keys(props).forEach( key =>{
+            newQuestionData[key] = props[key];
+        });
 
-        onQuestionUpdate(qIndex, questionData);
+        onQuestionDataUpdate(qIndex, newQuestionData);
+    };
+
+    const onQuestionRemoveClick = () => {
+        onQuestionRemove(qIndex);
     };
 
     return (
         <div className="questionContainer" key={qIndex}>
-            <QuestionHeader id={questionData.id}/>
+            <QuestionHeader id={qIndex} onClick={onQuestionRemoveClick}/>
 
             <QuestionTextInput qMainInputRef={qMainInputRef} 
                 questionText={questionText} 
@@ -67,12 +68,12 @@ export const Question = ({questionData, qIndex, onQuestionUpdate}) => {
             />
 
             <QuestionTypeForm qIndex={qIndex} 
-                onFormChange={onFormChange} 
+                onFormChange={onQuestionTypeChange} 
                 questionType={questionType}
             />
 
             { questionType === QUESTION_TYPE_SINGLE_CHOICE &&
-                <SingleChoicesOptions onOptionsChange={onOptionsChange}/>
+                <SingleChoicesOptions onOptionsChange={onOptionsChange} answerOptions={answerOptions}/>
             }
         </div>
     )

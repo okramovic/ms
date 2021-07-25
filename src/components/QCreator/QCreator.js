@@ -16,7 +16,7 @@ export function QCreator({onCreateQCancel, onFormSave}){
 
     const onAddQuestionClick = ()=>{
         const newQuestions = [...questions];
-        newQuestions.push({id: questions.length, questionType: QUESTION_TYPE_TEXT });
+        newQuestions.push({questionType: QUESTION_TYPE_TEXT});
         setQuestions(newQuestions);
     };
 
@@ -24,11 +24,16 @@ export function QCreator({onCreateQCancel, onFormSave}){
         setQuestionnaireName(ev.target.value);
     };
 
-    const onQuestionUpdate = (index, data)=>{
+    const onQuestionDataUpdate = (index, data)=>{
         if (typeof index === 'undefined') return;
 
         const newQuestions = [...questions]
         newQuestions[index] = data;
+        setQuestions(newQuestions);
+    };
+
+    const onQuestionRemove = (index) =>{
+        const newQuestions = [...questions].filter((_,i)=>i!==index);
         setQuestions(newQuestions);
     };
 
@@ -51,8 +56,12 @@ export function QCreator({onCreateQCancel, onFormSave}){
                 />
             </div>
 
-            {questions.map((questionData, i) =>
-                <Question key={i} questionData={questionData} qIndex={i} onQuestionUpdate={onQuestionUpdate}/>
+            {questions.map((qData, i) =>
+                <Question key={i} qIndex={i}
+                    questionType={qData.questionType} questionText={qData.questionText} 
+                    answerOptions={qData.answerOptions}
+                    onQuestionDataUpdate={onQuestionDataUpdate} onQuestionRemove={onQuestionRemove}
+                />
             )}
 
             <Button  onClick={onAddQuestionClick} className={"addQuestionButton buttonSmall"} label={"Add question"}/>
