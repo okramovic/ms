@@ -9,7 +9,7 @@ const dummyQuestionnaires = [
         "name": "Shopping 1",
         "createdOn": new Date("2021-07-24T08:46:34.863Z"),
         "questions": [
-            {"questionText": "how was it","questionType":"questionTypeText","answerOptions":null}
+            {"questionText": "How did you like the shopping?","questionType":"questionTypeText","answerOptions":null}
         ]
     },
     {
@@ -24,7 +24,7 @@ const dummyQuestionnaires = [
 
 function App() {
 
-    const [role, setRole] = useState(ADMIN_ROLE); // null
+    const [role, setRole] = useState(null);
     const [isCreatingQuestionnaire, setIsCreatingQuestionnaire] = useState(false);
     const [questionnaires, setQuestionnaires] = useState([...dummyQuestionnaires]);
 
