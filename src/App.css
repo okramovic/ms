@@ -1,9 +1,13 @@
 .App{
     width: 100vw;
-    background: rgb(229, 231, 233);
+    background: var(--light-gray);
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.positionRelative{
+    position: relative;
 }
 
 .width80percent{
@@ -28,6 +32,10 @@
 
 .justifyBetween{
     justify-content: space-between;
+}
+
+.marginLeftRight005rem{
+    margin: 0 0.5rem;
 }
 
 h3, h4, h5, h6{
@@ -192,7 +200,8 @@ main {
 
 main > section{
     width: 100%;
-    min-height: calc(100vh - var(--nav-height));
+    /* min-height: calc(100vh - var(--nav-height)); */
+    min-height: 120vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -319,4 +328,21 @@ main section > button:first-of-type{
     border: 1px solid rgb(121, 121, 121);
     background: white;
     border-radius: 50%;
+}
+
+
+.scrollLock{
+    overflow: hidden;
+}
+
+._hideVisually{
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
 }

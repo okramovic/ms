@@ -1,4 +1,5 @@
 html {
+    --light-gray: rgb(229, 231, 233);
     --nav-height: 100px;
     --q-header-width: 200px;
 }
