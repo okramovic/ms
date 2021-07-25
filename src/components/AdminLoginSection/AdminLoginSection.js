@@ -33,7 +33,7 @@ export const AdminLoginSection = ({role, setUserRole}) => {
     };
 
     return(
-        <div className="width100percent">
+        <div>
             { role === ADMIN_ROLE ? <>
                     <div className="empty"></div>
                     <span>You're logged in as Admin</span>

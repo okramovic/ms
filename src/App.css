@@ -9,6 +9,7 @@
 .width80percent{
     width: 80%;
 }
+
 .width100percent{
     width: 100%;
 }
@@ -16,12 +17,15 @@
 .flex{
     display: flex;
 }
+
 .flexDirectionColumn{
     flex-direction: column;
 }
+
 .alignItemsCenter{
     align-items: center;
 }
+
 .justifyBetween{
     justify-content: space-between;
 }
@@ -38,6 +42,10 @@ button{
     font-size: 1rem;
     padding: 0.5rem;
     background: LightSteelBlue;
+}
+
+button:not(:disabled):hover{
+    filter: brightness(1.05);
     cursor: pointer;
 }
 
@@ -71,17 +79,10 @@ button.deleteQuestionButton{
 }
 
 button .closeIcon{
-    width: 25px;
-    height: 25px;
     fill: transparent;
     stroke: black;
     stroke-linecap: round;
     stroke-width: 2;
-}
-
-.optionAnswerContainer .closeIcon{
-    width: 15px;
-    height: 15px;
 }
 
 input[type="text"], textarea{
@@ -103,6 +104,7 @@ textarea:focus{
     font-size: 2rem;
     resize: none;
 }
+
 .QCreator input[type="text"]::placeholder, 
 .QCreator textarea::placeholder{
     color: gray;
@@ -121,7 +123,7 @@ textarea:focus{
 }
 
 nav {
-    width: 100%;
+    width: 100vw;
     height: var(--nav-height);
     background-color: #282c34;
     display: flex;
@@ -132,10 +134,13 @@ nav {
 }
 
 nav > div{
+    width: 80%;
+    max-width: 900px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
+
 nav input[type="password"]{
     box-sizing: border-box;
     font-size: 1.25rem;
@@ -159,8 +164,8 @@ nav div.empty{
 }
 
 main {
-    width: 100%;
-    max-width: 1100px;
+    width: 80%;
+    max-width: 900px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -170,8 +175,11 @@ main {
 .questionnairesContainer{
     margin: 3rem 0;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
+    
+    display: grid;
+    grid-template-columns: repeat(2, calc(50% - 1rem));;
+    column-gap: 2rem;
+    row-gap: 2rem;
 }
 
 .questionnairesContainer > li{
@@ -183,7 +191,7 @@ main {
 }
 
 main > section{
-    width: 80%;
+    width: 100%;
     min-height: calc(100vh - var(--nav-height));
     display: flex;
     flex-direction: column;
@@ -220,7 +228,6 @@ main section > button:first-of-type{
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .questionText{
@@ -234,12 +241,14 @@ main section > button:first-of-type{
     margin-right: 1.5rem;
     width: var(--q-header-width);
 }
+
 .formChooseQuestionType input[type="radio"]{
     margin-top: 0;
     margin-right: .33rem;
     position: relative;
     cursor: pointer;
 }
+
 .formChooseQuestionType label{
     margin-right: 1rem;
 }
@@ -294,8 +303,8 @@ main section > button:first-of-type{
 }
 
 .questionnaireThumbnail{
-    width: 300px;
-    margin: 1rem;
+    width: 100%;
+    box-sizing: border-box;
     padding: 1.5rem;
 
     box-shadow: 2px 2px 5px gray;
