@@ -1,7 +1,7 @@
 import {Button} from '../Button/Button';
 import {ADMIN_ROLE} from '../AdminLoginSection/AdminLoginSection';
 import {Popup} from '../Popup/Popup';
-import {useState} from 'react';
+import {useCallback, useState} from 'react';
 const DEFAULT_Q_LABEL = 'Questionnaire #';
 
 export const QuestionnairesOverview = ({role, onCreateNewClick, questionnaires}) =>{
@@ -9,11 +9,11 @@ export const QuestionnairesOverview = ({role, onCreateNewClick, questionnaires})
     const [showPopup, setShowPopup] = useState(false);
     const [formShownIndex, setFormShownIndex] = useState(null);
     
-    const onTogglePopup = formIndex =>{
+    const onTogglePopup = useCallback(formIndex =>{
         setShowPopup(prev => !prev);
         setFormShownIndex(formIndex);
         document.body.classList.toggle('scrollLock');
-    };
+    }, []);
 
     return(
         <>

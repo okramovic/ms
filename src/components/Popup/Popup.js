@@ -17,7 +17,7 @@ export const Popup = ({onTogglePopup, formData}) =>{
         return ()=>{
             window.removeEventListener('keydown', onKeyDown);
         }
-    }, []);
+    }, [onTogglePopup]);
 
     return createPortal(
         <FocusTrap>
